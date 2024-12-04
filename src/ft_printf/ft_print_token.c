@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 static t_fmt	*get_formats(void)
 {

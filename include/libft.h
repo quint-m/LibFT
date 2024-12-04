@@ -27,11 +27,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-typedef struct s_fmt
-{
-	char	token;
-	int		(*fn)(va_list, const char *, char *);
-}				t_fmt;
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
@@ -89,7 +84,8 @@ int		print_percent(va_list args, const char *fmt, char *buf);
 int		handle_hex(unsigned long n, const char *char_set, char *buffer);
 int		handle_int(int n, char *buffer);
 int		handle_int_u(unsigned int n, char *buffer);
-int		ft_printf(const char *format, ...);
 char	*get_next_line(int fd);
 char	*ft_join(char *buffer, char *buf);
+int		ft_printf(const char *format, ...);
+
 #endif
