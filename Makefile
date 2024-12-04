@@ -11,11 +11,23 @@
 # **************************************************************************** #
 
 NAME = libft.a
+
 SRC_DIR=src
 OBJ_DIR=obj
 INC_DIR=include
 
 VPATH = src:src/ft_printf:src/get_next_line
+
+GREEN = \033[32m
+YELLOW = \033[33m
+BLUE = \033[34m
+RED = \033[31m
+RESET = \033[0m
+
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -rf
+AR = ar crs
 
 PRINT_F =	ft_printf.c					\
 			ft_print_token.c			\
@@ -74,12 +86,6 @@ SOURCES	=	ft_atoi.c					\
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o));
 
-
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-RM = rm -rf
-AR = ar crs
-
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
@@ -87,14 +93,19 @@ $(OBJ_DIR):
 	mkdir -p $@
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@echo "$(YELLOW)⏳ Compiling $<...$(RESET)"
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	@echo "$(GREEN)✅ $< compiled!$(RESET)"
 
 all: $(NAME)
+	@echo "$(GREEN)✅ Building all targets...$(RESET)"
 
 clean:
+	@echo "$(RED)🗑️  Cleaning all object files...$(RESET)"
 	$(RM) $(OBJS)
 
 fclean:	clean
+	@echo "$(RED)🗑️  Cleaning $(NAME)...$(RESET)"
 	$(RM) $(NAME)
 	@rm -rf $(OBJ_DIR)
 
