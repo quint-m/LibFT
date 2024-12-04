@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-SRC_DIR=srcs
+SRC_DIR=src
 
 SRC	=	$(SRC_DIR)/ft_atoi.c		\
 		$(SRC_DIR)/ft_itoa.c		\
