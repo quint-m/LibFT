@@ -12,6 +12,7 @@
 
 NAME = libft.a
 SRC_DIR=src
+INC_DIR=include
 
 SRC	=	$(SRC_DIR)/ft_atoi.c		\
 		$(SRC_DIR)/ft_itoa.c		\
@@ -75,7 +76,7 @@ $(NAME): $(OBJS)
 	$(AR) $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -I $(INC_DIR) -c $^ -o $@
 
 all: $(NAME)
 
