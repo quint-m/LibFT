@@ -98,7 +98,7 @@ $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 all: $(NAME)
 
 clean:
-	printf "$(RED)Cleaning object files$(RESET)\n"
+	@printf "$(RED)Cleaning object files$(RESET)\n"
 	@$(RM) $(OBJS)
 
 fclean:	clean
