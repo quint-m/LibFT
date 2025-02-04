@@ -16,7 +16,7 @@ SRC_DIR=src
 OBJ_DIR=obj
 INC_DIR=include
 
-VPATH = src:src/ft_printf:src/get_next_line
+VPATH = src:src/ft_printf:src/get_next_line:src/memory:src/write:src/convert:src/list:src/string
 
 GREEN = \033[32m
 YELLOW = \033[33m
@@ -87,27 +87,23 @@ SOURCES	=	ft_atoi.c					\
 OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o));
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	@$(AR) $@ $^ && printf "Building $(NAME)\n"
 
 $(OBJ_DIR):
-	mkdir -p $@
+	@mkdir -p $@
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@echo "$(YELLOW)⏳ Compiling $<...$(RESET)"
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
-	@echo "$(GREEN)✅ $< compiled!$(RESET)"
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@ && printf "$(GREEN)Compiling $<\n$(RESET)"
 
 all: $(NAME)
-	@echo "$(GREEN)✅ Building all targets...$(RESET)"
 
 clean:
-	@echo "$(RED)🗑️  Cleaning all object files...$(RESET)"
-	$(RM) $(OBJS)
+	printf "$(RED)Cleaning object files$(RESET)\n"
+	@$(RM) $(OBJS)
 
 fclean:	clean
-	@echo "$(RED)🗑️  Cleaning $(NAME)...$(RESET)"
-	$(RM) $(NAME)
-	@rm -rf $(OBJ_DIR)
+	@$(RM) $(NAME) && printf "$(RED)Removed $(NAME)$(RESET)\n"
+	@$(RM) -rf $(OBJ_DIR)
 
 re:	fclean all
 
