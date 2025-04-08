@@ -6,7 +6,7 @@
 #    By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 17:47:14 by qmennen           #+#    #+#              #
-#    Updated: 2025/04/08 16:40:16 by qmennen          ###   ########.fr        #
+#    Updated: 2025/04/08 16:40:54 by qmennen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,7 @@ $(OBJ_DIR):
 	@mkdir -p $@
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@printf "$(YELLOW)* compiling $<*\r$(RESET)"
+	@printf "$(YELLOW)* compiling $< *\r$(RESET)"
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 all: $(NAME)
