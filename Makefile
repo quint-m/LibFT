@@ -87,26 +87,26 @@ SOURCES	=	ft_atoi.c					\
 OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o));
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	@printf "\n$(YELLOW)* building libft *$(RESET)\n"
+	@$(AR) $@ $^
+	@printf "$(GREEN)* done building libft *$(RESET)\n"
 
 $(OBJ_DIR):
-	mkdir -p $@
+	@mkdir -p $@
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@echo "$(YELLOW)⏳ Compiling $<...$(RESET)"
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
-	@echo "$(GREEN)✅ $< compiled!$(RESET)"
+	@printf "$(YELLOW)* compiling $<*\r$(RESET)"
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 all: $(NAME)
-	@echo "$(GREEN)✅ Building all targets...$(RESET)"
-
+	
 clean:
-	@echo "$(RED)🗑️  Cleaning all object files...$(RESET)"
-	$(RM) $(OBJS)
+	@printf "$(RED)* cleaning object files *$(RESET)\n"
+	@$(RM) $(OBJS)
 
 fclean:	clean
-	@echo "$(RED)🗑️  Cleaning $(NAME)...$(RESET)"
-	$(RM) $(NAME)
+	@echo "$(RED)* cleaning $(NAME) *$(RESET)\n"
+	@$(RM) $(NAME)
 	@rm -rf $(OBJ_DIR)
 
 re:	fclean all

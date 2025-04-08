@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_printf.h"
 
 static void	print_buffer(char *buffer, size_t *size)
 {

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "get_next_line.h"
 
 static char	*ft_read_file(int fd, char *buffer)
 {
