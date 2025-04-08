@@ -6,7 +6,7 @@
 #    By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 17:47:14 by qmennen           #+#    #+#              #
-#    Updated: 2024/10/16 19:16:42 by qmennen          ###   ########.fr        #
+#    Updated: 2025/04/08 16:40:16 by qmennen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR=src
 OBJ_DIR=obj
 INC_DIR=include
 
-VPATH = src:src/ft_printf:src/get_next_line
+VPATH = src:src/ft_printf:src/get_next_line:src/memory:src/write:src/convert:src/list:src/string
 
 GREEN = \033[32m
 YELLOW = \033[33m
